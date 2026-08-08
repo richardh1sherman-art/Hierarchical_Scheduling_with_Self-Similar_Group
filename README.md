@@ -49,13 +49,19 @@ python ablation_scheduler.py
 * `pure_algebraic_performance.png`: Tracks the raw word loops (`a · a · a · a`) within unguided horizons.
 
 ---
+## 📐 Mathematical Formulation and Scalability
 
-## 🎓 Mathematical Reference Setup
-Transitions are driven by operators built inductively via Kronecker products to protect fractal permanence:
-$$\begin{aligned}
-    a_n &= \sigma_x \otimes I_{2^{n-1}} \\
-    b_n &= \text{diag}(a_{n-1}, c_{n-1}) \\
-    c_n &= \text{diag}(a_{n-1}, d_{n-1}) \\
-    d_n &= \text{diag}(I_{2^{n-1}}, b_{n-1})
-\end{aligned}$$
-This structure provides absolute logical safety. Expanding the system to a sprawling 3-site restaurant chain simply requires scaling the compiler depth parameters from $N=5$ to $N=7$ ($128$-dimensional leaf space). Because the look-ahead search space remains perfectly uniform, this architecture unlocks unlimited linear scaling parameters for decentralized multi-agent computing frameworks.
+The physical transitions of the environment are strictly driven by the group's four canonical generators ($a, b, c, d$). To protect fractal permanence across the GPU cluster cores, these matrices are generated inductively via nested Kronecker tensor products:
+
+* $a_n = \sigma_x \otimes I_{2^{n-1}}$
+* $b_n = \text{diag}(a_{n-1}, c_{n-1})$
+* $c_n = \text{diag}(a_{n-1}, d_{n-1})$
+* $d_n = \text{diag}(I_{2^{n-1}}, b_{n-1})$
+
+*(Where $\sigma_x$ represents the standard Pauli-X permutation matrix).*
+
+### Scaling Beyond a Single Location
+This algebraic formulation provides absolute logical safety and a massive architectural advantage when expanding the optimization scope. For instance, scaling the framework up to handle a complete **3-restaurant chain cluster** requires adding just a high-level branch to the tree to serve as the global location selector. 
+
+This shifts your inductive compiler parameters from a depth of $N=5$ (32-dimensional leaf space) to $N=7$ (128-dimensional leaf space). Because the Abelian odometer group operates as a stable, bit-reversed counter, your look-ahead word search window space size remains perfectly uniform (fixed at $3^3 = 27$ options). This structure allows you to scale up the number of managed locations and waitresses linearly, achieving decentralized multi-agent computing efficiency without suffering from combinatorial explosion.
+
