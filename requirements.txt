@@ -1,0 +1,6 @@
+torch>=1.11.0
+numpy>=1.21.6
+scikit-image>=0.19.2
+imageio>=2.19.3
+einops>=0.4.1
+z3-solver>=4.8.17
