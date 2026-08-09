@@ -10,7 +10,7 @@ The fleet planning layer divides mechanical and routing labor strictly based on 
 
 ### Level 1: Central Master Dispatcher — Abelian Odometer (Group A)
 * **Role:** Manages high-level robot task assignments and fleet coordination across workstations.
-* **Property:** Strictly commutative and abelian. The master clock clicks forward sequentially (\(0 \rightarrow 4 \rightarrow 2 \rightarrow 6 \dots\)), applying a Radix-2 bit-reversal permutation.
+* **Property:** Strictly commutative and abelian. The master clock clicks forward sequentially (\(0 ightarrow 4 ightarrow 2 ightarrow 6 \dots\)), applying a Radix-2 bit-reversal permutation.
 * **Advantage:** Because it is abelian, dispatching a robot to a target can never induce non-local ripple effects or scramble the pending instruction queues of other independent units on the floor.
 
 ### Level 2: Onboard Robotic Actuators — Non-Abelian Grigorchuk (Group B)
@@ -23,7 +23,7 @@ The fleet planning layer divides mechanical and routing labor strictly based on 
 ## 🔬 Key Empirical Breakthroughs
 
 1. **Decoupled Register Isolation:** Standard multi-agent models suffer from global memory scrambling inside self-similar trees. By allocating private, isolated Grigorchuk state vector registers to each robot, local movements remain completely contained within a private branch, allowing individual sub-tree leaves to actuate safely.
-2. **Asynchronous Macro-Stepping:** Standard turn-based synchronization context-swaps agents too quickly, trapping non-abelian systems in local loops. By allowing each dispatched robot to maintain an uninterrupted **5-step look-ahead block**, the system gains the necessary trajectory depth to discover long non-abelian words (e.g., a ⋅ b ⋅ b ⋅ a ⋅ b).
+2. **Asynchronous Macro-Stepping:** Standard turn-based synchronization context-swaps agents too quickly, trapping non-abelian systems in local loops. By allowing each dispatched robot to maintain an uninterrupted **5-step look-ahead block**, the system gains the necessary trajectory depth to discover long non-abelian words (e.g., a \(\cdot\) b \(\cdot\) b \(\cdot\) a \(\cdot\) b).
 3. **Flawless Optimization Base:** By combining block-execution with an automated stride mutation check (which skips unaligned odometer phase offsets), the fleet achieves a perfect **4/4 Robotic Stations Secured** benchmark profile, gracefully settling into `System-Stasis Alignment` once all goals are satisfied.
 
 ---
@@ -64,7 +64,7 @@ When executed, the GPU will output a highly coordinated, multi-stage task trajec
 
 ## 📐 Mathematical Formulation
 
- Robomechanical tracking vectors are compiled inductively using tensor representations to maintain spatial permanence:
+Robomechanical tracking vectors are compiled inductively using tensor representations to maintain spatial permanence:
 $$\begin{aligned}
     a_n &= \sigma_x \otimes I_{2^{n-1}} \\
     b_n &= \text{diag}(a_{n-1}, c_{n-1}) \\
@@ -73,4 +73,3 @@ $$\begin{aligned}
 \end{aligned}$$
 
 Expanding the planning scope to a massive layout of 50 or 100 robots does not require reshaping the onboard mechanical logic profiles. You simply expand the dimension of the master odometer selector (Group A), while keeping the onboarding hardware registers (Group B) completely uniform. This allows you to scale up the fleet linearly without suffering from combinatorial search explosion.
-
