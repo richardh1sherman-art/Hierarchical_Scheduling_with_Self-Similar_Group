@@ -28,5 +28,5 @@ The following benchmark table tracks the system performance across 61 distinct r
 
 Execute the master real-image neuro-Symbolic data streaming router:
 ```bash
-PYTHONPATH="." /home/rsherman/SchedulingSelf-Similar/dgx_spark_env/bin/python /home/rsherman/SchedulingSelf-Similar/liten_unified_orchestrator.py
+PYTHONPATH="." ./dgx_spark_env/bin/python liten_unified_orchestrator.py
 ```
